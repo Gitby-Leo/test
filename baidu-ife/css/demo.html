@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-cn">
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+      <meta name="format-detection" content="telephone=no" />
+   <style>
+      *{margin:0;padding:0;}
+      .txt{
+         width:fit-content;
+         margin:0 auto;
+         text-align: center;
+      }
+      .txt .txtAn{
+      }
+      .txt .txt1{
+         font-size: 30px;
+         font-weight: bold;
+         transition: all 0.2s linear 0s;
+      }
+      .txt .txt2{
+         width:0;
+         height:5px;
+         margin:0 auto;
+         transform-origin: 50%;
+         background:blue;
+         opacity: 0;
+         /*transition: all 0.2s linear 0s;*/
+      }
+      .txt1.an{
+         color:blue;
+      }
+      .txt2.an{
+         /*width:100%;*/
+         /*opacity:1;*/
+         animation: showLine 0.3s linear 0s;
+         animation-fill-mode: forwards;
+      }
+      .txt2.co_an{
+         animation: hideLine 0.3s linear 0s;
+         animation-fill-mode: forwards;
+      }
+      .an{
+         
+      }
+      .btn{
+         width:100px;
+         margin:0 auto;
+         text-align: center;
+         border:1px solid #000;
+         border-radius: 5px;
+         cursor: pointer;
+         user-select: none;
+      }
+      @keyframes showLine{
+         from{width:0;opacity:0;}
+         to{width:100%;opacity:1;}
+      }
+      @keyframes hideLine{
+         from{width:100%;opacity:1;}
+         to{width:0;opacity:0;}
+      }
+   </style>
+  </head>
+<body>
+   <div class="txt">
+      <div id="txt" class="txtAn txt1">
+         Hello World
+      </div>
+      <div id="txt2" class="txtAn txt2">
+         
+      </div>
+   </div>
+   <div id="btn" class="btn">
+      Click Me!
+   </div>
+   <!-- <div id="btn2" class="btn">
+      Clean!
+   </div> -->
+<script src="http://leow.net.cn/commonjs/leo.js"></script>
+<script type="text/javascript">
+   
+   var txt = document.getElementById('txt');
+   var btn = document.getElementById('btn');
+   var txtAn = $('.txtAn');
+   $('#btn').addEventListener('click',function(){
+      if(waitTime(300)){
+
+         if(hasClass(txtAn,'an')){
+            removeClass(txtAn,'an');
+            addClass(txtAn,'co_an');
+         }else{
+            removeClass(txtAn,'co_an');
+            addClass(txtAn,'an');
+         }
+
+      }
+   })
+</script>
+</body>
+</html>
